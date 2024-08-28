@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldWideWeb: Proposta para um Projeto de Hipertexto</title>
+</head>
+<body>
+    <h1>WorldWideWeb: Proposta para um Projeto de Hipertexto</h1>
+    <dl>Para:
+        <ul>PG Innocenti/ECP, G. Kellner/ECP, DO Williams/CN</ul>
+    </dl>
+    <dl>Cópia arquivada
+        <ul>R. Brun/CN, K. Gieselmann/ECP, R. Jones/ECP, T. Osborne/CN, P. Palazzi/ECP, N. Pellow/CN, B.
+        Pollermann/CN, EM Rimmer/ECP</ul>
+        De:
+        <ul>T. Berners-Lee/CN, R. Cailliau/ECP</ul>
+        Data:
+        <ul>12 de novembro de 1990</ul>
+    </dl>
+        <p>O documento em anexo descreve com mais detalhes um projeto de hipertexto.</p>
+         <p>HyperText é uma maneira de vincular e acessar informações de vários tipos como uma rede de nós na qual o
+         usuário pode navegar à vontade. Ele fornece uma única interface de usuário para grandes classes de
+         informações (relatórios, notas, bancos de dados, documentação de computador e ajuda on-line). Propomos
+         um esquema simples incorporando servidores já disponíveis no CERN.</p>
+         <p>O projeto tem duas fases: primeiramente, fazemos uso de software e hardware existentes, bem como
+         implementamos navegadores simples para as estações de trabalho do usuário, com base em uma análise dos
+         requisitos para necessidades de acesso à informação por meio de experimentos. Em segundo lugar,
+         estendemos a área de aplicação, permitindo também que os usuários adicionem novos materiais.</p>
+         <p>A primeira fase deve levar 3 meses com o complemento total de mão de obra, a segunda fase mais 3 meses, mas esta fase é mais aberta, e uma revisão de necessidades e desejos será incorporada a ela.</p>
+         <p>A mão de obra necessária é de 4 engenheiros de software e um programador (um dos quais pode ser um
+         Fellow). Cada pessoa trabalha em uma parte específica (por exemplo, suporte de plataforma específica).
+
+         <p> Cada pessoa precisará de uma estação de trabalho de última geração, mas deve haver uma de cada um dos
+         tipos suportados. Elas custarão de 10 a 20k cada, totalizando 50k. Além disso, gostaríamos de usar software
+         disponível comercialmente tanto quanto possível, e prevemos uma despesa de 30k durante o
+         desenvolvimento para licenças de usuário único, visitas a instalações existentes e consultoria</p>
+         <p>Assumiremos que o projeto pode contar com algum suporte de computação sem custo: espaço de arquivo de
+         desenvolvimento em sistemas de desenvolvimento existentes, instalação e suporte do gerenciador de sistema para software daemon.</p>
+
+         <a href=http://127.0.0.1:5500/People.html#Cailliau>T. Berners-Lee R. Cailliau
+         </a>
+            <h1>Rede mundial de computadores:</h1>    
+
+            <p>Proposta para um projeto de Hipertexto <br> 
+            T. Berners-Lee / CN, R. Cailliau / ECP</p>
+
+            <h2>Resumo:</h2>
+
+            <p>HyperText é uma maneira de vincular e acessar informações de vários tipos como uma rede de nós na qual o usuário pode navegar à vontade. Potencialmente, o HyperText fornece uma única interface de usuário para muitas classes grandes de informações armazenadas, como relatórios, notas, bancos de dados, documentação de computador e ajuda de sistemas on-line. Propomos a implementação de um esquema simples para incorporar vários servidores diferentes de informações armazenadas em máquinas já disponíveis no CERN, incluindo uma análise dos requisitos para necessidades de acesso à informação por experimentos.</p>
+
+            <h2>Introdução</h2>
+
+            <p>As atuais incompatibilidades das plataformas e ferramentas tornam impossível acessar informações existentes por meio de uma interface comum, levando a desperdício de tempo, frustração e respostas obsoletas para uma simples pesquisa de dados. Há um grande benefício potencial na integração de uma variedade de sistemas de uma forma que permita que um usuário siga links apontando de uma informação para outra. Essa formação de uma rede de nós de informação em vez de uma árvore hierárquica ou uma lista ordenada é o conceito básico por trás do HyperText. <br> No CERN, uma variedade de dados já está disponível: relatórios, dados de experimentos, dados de pessoal, listas de endereços de e-mail, documentação de computador, documentação de experimentos e muitos outros conjuntos de dados estão girando em discos de computador continuamente. No entanto, é impossível "pular" de um conjunto para outro de forma automática: uma vez que você descobre que o nome de Joe Bloggs está listado em uma descrição incompleta de algum software on-line, não é fácil encontrar seu endereço de e-mail atual. Normalmente, você terá que usar um método de pesquisa diferente em um computador diferente com uma interface de usuário diferente. Uma vez que você tenha localizado as informações, é difícil manter um link para elas ou fazer uma nota privada sobre elas que você poderá encontrar rapidamente mais tarde.</p>
+
+            <h2>Conceitos de Hipertexto</h2>
+
+            <p>Os princípios do hipertexto e sua aplicabilidade ao ambiente do CERN são discutidos mais detalhadamente
+            em [1], um glossário de termos técnicos é fornecido em [2]. Aqui damos uma breve apresentação do
+            Hipertexto</p>
+            <p>Um programa que fornece acesso ao mundo do hipertexto que chamamos de navegador. Ao iniciar um
+            navegador de hipertexto em sua estação de trabalho, você primeiro verá uma página de hipertexto que é
+            pessoal para você: suas notas pessoais, se preferir. Uma página de hipertexto tem pedaços de texto que se
+            referem a outros textos. Essas referências são destacadas e podem ser selecionadas com um mouse (em
+            terminais burros, elas apareceriam em uma lista numerada e a seleção seria feita inserindo um número).
+            Quando você seleciona uma referência, o navegador apresenta o texto que é referenciado: você fez o
+            navegador seguir um link de hipertexto:</p>
+            <p>(ver Fig. 1: links de hipertexto).</p>
+            <p>O texto em si tem links para outros textos e assim por diante. Na fig. 1, clicar no GHI levaria você para as
+            atas daquela reunião. Lá você se interessaria pela discussão do UPS e clicaria na palavra destacada UPS para
+            saber mais sobre ela.</p>
+            <p> Os textos são interligados de uma forma que se pode ir de um conceito a outro para encontrar a informação
+            que se deseja. A rede de links é chamada de web. A web não precisa ser hierárquica e, portanto, não é
+            necessário "subir em uma árvore" novamente antes de poder descer para um assunto diferente, mas
+            relacionado. A web também não é completa, pois é difícil imaginar que todos os links possíveis seriam
+            colocados por autores. No entanto, um pequeno número de links geralmente é suficiente para ir de qualquer
+            lugar para qualquer outro lugar em um pequeno número de saltos. </p>
+            <p>Os textos são conhecidos como nós. O processo de prosseguir de nó para nó é chamado de navegação. Os nós
+            não precisam estar na mesma máquina: links podem apontar através dos limites da máquina. Ter uma world
+            wide web implica que algumas soluções devem ser encontradas para problemas como diferentes protocolos
+            de acesso e diferentes formatos de conteúdo de nó. Essas questões são abordadas por nossa proposta.</p>
+            <p>Os nós podem, em princípio, também conter informações não textuais, como diagramas, imagens, som,
+            animação etc. O termo hipermídia é simplesmente a expansão da ideia de hipertexto para essas outras mídias.
+            Onde já existem facilidades, pretendemos permitir o intercâmbio de gráficos, mas neste projeto, nos
+            concentramos na leitura universal de texto, em vez de gráficos.</p>
+            
+            <h2>Aplicações</h2>
+
+            <p>A aplicação de um sistema de hipertexto universal, uma vez em vigor, cobrirá muitas áreas, como registro de
+                documentos, ajuda on-line, documentação de projetos, esquemas de notícias e assim por diante. Seria
+                inapropriado para nós (em vez dos responsáveis) sugerir áreas específicas, mas experimentar ajuda on-line,
+                ajuda on-line aceleradora, assistência para operadores de centros de computação e a disseminação de
+                informações por serviços centrais, como o escritório do usuário e as divisões CN e ECP, são candidatos
+                óbvios. A WorldWideWeb (ou W3) pretende atender a esses serviços em toda a comunidade HEP.
+                </p>
+
+        <h2>Âmbito: Objetivos e não objetivos</h2>
+                <p>O projeto operará em um certo subconjunto bem definido da área de assunto frequentemente associada à tag
+                    "Hypertext". Ele terá como objetivo: </p>
+                    <ul>
+                        <li>fornecer um protocolo comum (simples) para solicitar informações legíveis por humanos armazenadas
+                            em um sistema remoto, usando redes;</li>
+                            <li>fornecer um protocolo dentro do qual as informações possam ser trocadas automaticamente em um formato comum ao fornecedor e ao consumidor;</li>
+                            <li>fornecer algum método de leitura de pelo menos texto (se não gráficos) usando uma grande proporção
+                            das telas de computador em uso no CERN;</li>
+                            <li>fornecer e manter pelo menos uma coleção de documentos, na qual os usuários podem (mas não são
+                            obrigados a) colocar seus documentos. Esta coleção incluirá muitos dados existentes. (Isto é em parte
+                            para nos dar experiência em primeira mão do uso do sistema, e em parte porque os membros do projeto
+                            já terão documentação pela qual são responsáveis)</li>
+                            <li>para fornecer uma opção de busca por palavra-chave, além da navegação seguindo referências, usando
+                            quaisquer índices novos ou existentes (como os índices CERNVM FIND). O resultado de uma busca
+                            por palavra-chave é simplesmente um documento de hipertexto que consiste em uma lista de
+                            referências a nós que correspondem às palavras-chave. para permitir que coleções privadas de
+                            documentos gerenciados individualmente sejam vinculadas àquelas em outras coleções. para usar
+                            software de domínio público sempre que possível, ou fazer interface com sistemas proprietários que já existem.</li>
+                            <li>fornecer o software acima gratuitamente a qualquer pessoa.</li>
+                    </ul>
+
+                    <h2>O projeto não terá como objetivo</h2>
+
+                <ul>
+                    <li>para fornecer conversões onde elas não existam entre os muitos formatos de armazenamento de
+                    documentos no CERN, embora fornecendo uma estrutura na qual tais utilitários de conversão possam
+                    se encaixar;</li>
+                    <li>forçar os usuários a usar qualquer processador de texto ou formato de marcação específico;
+                    para pesquisar recursos multimídia sofisticados, como som e vídeo;</li>
+                    <li>para usar sistemas sofisticados de autorização de rede. os dados serão legíveis pelo mundo
+                    (literalmente), ou serão legíveis somente em um sistema de arquivos, em cujo caso o sistema de proteção do sistema de arquivos será usado para privacidade. Todo o tráfego de rede será público.</ul>
+                    
+                    <h2>Análise de requisitos</h2>
+                            <p>Para garantir a resposta às necessidades reais, uma análise de requisitos para as necessidades de acesso à informação de um grande experimento do CERN será conduzida logo no início, paralelamente à primeira fase do projeto.</p>
+                            <p>Esta análise será inicialmente limitada às atividades dos membros do experimento Aleph, e  posteriormente será estendida a pelo menos um outro experimento. Será feita uma visão geral da geração, armazenamento e recuperação de informações, independente da forma (máquina, papel) e independente da finalidade (experimento, administração)</p>
+                            <p>O resultado deve ser:</p>
+                            <ul>
+                                <li>listas de fontes, depósitos e sumidouros de informação,
+                                    <li>listas de formatos,</li>
+                                    <li>diagramas de fluxo,</li>
+                                    <li>estatísticas sobre tráfego,</li>
+                                    <li>níveis estimados de importância dos fluxos,</li>
+                                    <li>listas de desejos do cliente e/ou melhorias sugeridas,</li>
+                                    <li>níveis estimados de satisfação com as plataformas,</li>
+                                    <li>estimativa de urgência para melhorias.
+                                    Esta análise em si não proporá soluções ou melhorias, mas seus resultados orientarão o projeto
+                            </ul>
+                                <p>Esta análise em si não proporá soluções ou melhorias, mas seus resultados orientarão o projeto.</p>
+
+                                <h2>Arquitetura</h2>
+
+                                <p>A arquitetura do mundo do hipertexto é de dados armazenados em máquinas servidoras e processos clientes
+                                    nas mesmas ou em outras máquinas. As 
+                                    máquinas são vinculadas por alguma rede (fig. 2). Fig. 2: modelo
+                                    proposto para o mundo do hipertexto Uma estação de trabalho é uma máquina independente em seu escritório
+                                    ou um terminal conectado a um computador próximo e conectado à mesma rede. Os 
+                                    servidores são processos
+                                    ativos que respondem a solicitações. Os dados do hipertexto são explicitamente acessíveis a eles. Os
+                                    servidores podem ser muitos no mesmo sistema de computador, mas cada um atende a uma base de
+                                    hipertexto específica. Os clientes são processos do navegador, geralmente, mas não necessariamente, em um
+                                    sistema de computador diferente. As informações passadas são de dois tipos: nós e links.
+                                    </p>
+                                    
+                                    <h2>Blocos de construção</h2>
+                                    <p>Navegadores e servidores são os dois blocos de construção a serem fornecidos.</p>
+
+                                    <h3>Um navegador</h3>
+                                <p>é um programa de aplicação nativo em execução na máquina cliente:-</p>
+                                    <ul>
+                                        <li>ele executa a exibição de um nó de hipertexto usando o ambiente de    hardware e software do cliente.
+                                            Por exemplo, um navegador Macintosh usará a aparência e comportamento da interface Macintosh.</li>
+                                            <li>ele executa a travessia de links. Por exemplo, ao usar um Macintosh para navegar no CERNVM FIND,
+                                            será o navegador do Macintosh que lembrará quais links foram percorridos, como voltar etc., enquanto
+                                            <li>o servidor CERNVM apenas responde entregando os nós do navegador e não tem ideia de quais nós o
+                                            usuário visitou.</li>
+                                            <li>ele realiza a negociação de formatos em diálogo com o servidor. Por exemplo, um navegador para um
+                                            display do tipo VT100 sempre negociará somente texto ASCII, enquanto um navegador Macintosh
+                                            pode ser construído para aceitar PostScript ou SGML.
+                                            </li>
+                                    </ul>
+
+                                    <h3>Um servidor</h3>
+                                    <p>é um programa de aplicação nativo em execução na máquina do servidor:-</p>
+                                    <ul>
+                                        <li>ele gerencia uma rede de nós naquela máquina.- </li>
+                                        <li>Ele negocia o formato de apresentação com o navegador, realizando conversões instantâneas (ou em cache) a partir de seu próprio formato interno, se houver.</li>
+                                    </ul>
+
+                                    <h2>Operação</h2>
+                                    <p>Um link é especificado como uma string ASCII da qual o navegador pode deduzir um método adequado de contato com um servidor apropriado. Quando um link é seguido, o navegador endereça a solicitação do nó ao servidor. O servidor, portanto, não tem nada a saber sobre outros servidores ou outras webs e pode ser mantido simples</p>
+                                    <p>Uma vez que o servidor tenha localizado o nó solicitado, ele saberá a partir do conteúdo do nó qual é o
+                                        formato do nó (por exemplo, ASCII puro, marcado, armazenamento em processador de texto e qual
+                                        processador de texto etc.). O servidor então inicia uma negociação com o navegador, na qual eles decidem
+                                        entre si qual formato é aceitável para exibição na tela do usuário. Essa negociação será baseada apenas em
+                                        programas e formatos de conversão existentes: não está no escopo do W3 escrever novos conversores. O
+                                        último recurso na negociação é a transferência binária do conteúdo do nó para um arquivo no espaço de
+                                        arquivo do usuário. Negociar o formato para apresentação é particular do W3.
+                                        </p>
+
+                                        <h3>Fases do projeto</h3>
+                                        <p>Com os recursos mencionados abaixo, prevemos que as duas primeiras fases do projeto atingirão os seguintes
+                                            objetivos:</p>
+
+                                            <h2>Fase 1 — Meta: 3 meses a partir do início</h2>
+
+                                            <ul>
+                                                <li>Navegadores em terminais burros para abrir a leitura a qualquer pessoa com um computador ou PC.(?)</li>
+                                                <li>Navegadores em terminais vt220 para oferecer leitura orientada por cursor a uma grande proporção de
+                                                leitores; Um navegador no Macintosh no estilo Macintosh; Um navegador no NeXT usando as
+                                                ferramentas NeXTStep, como um protótipo rápido para ideias em design de interface humana e
+                                                técnicas de navegação.
+                                                </li>
+                                                <li>Um servidor que fornece acesso ao mundo de artigos de notícias da Usenet/Internet. *</li>
+                                                <li>Um servidor que fornece acesso a todas as informações atualmente armazenadas no CERNVM e
+                                                mencionadas no índice FIND. Isso deve incluir notas da biblioteca do programa CERN, telas de ajuda
+                                                do IBM e CERN CMS, redações do CERN/CN, artigos do Computer Newsletter, etc.</li>
+                                                <li>Um servidor que pode ser instalado em qualquer máquina para permitir que arquivos naquela máquina
+                                                sejam acessados como hipertexto.</li>
+                                                <li>A capacidade dos usuários de escrever, usando tags de marcação, seu próprio hipertexto para arquivos
+                                                de ajuda. Nenhuma outra capacidade de edição de hipertexto será necessariamente implementada nesta
+                                                fase.</li>
+                                                <li>Um processo de gateway para permitir acesso entre os mundos da Internet e do protocolo DECnet.</li>      
+                                                <li>Um conjunto de diretrizes sobre como gerenciar um servidor de hipertexto.</li>
+                                                <li>Uma análise de requisitos das necessidades de acesso à informação para um grande experimento.</li>              
+                                            </ul>
+
+                                        <p>Neste estágio, a leitura é universal, mas a criação de novos materiais depende de sistemas existentes. Por
+                                            exemplo, a introdução de novos materiais para o índice FIND, ou a publicação de artigos de notícias usará os
+                                            mesmos procedimentos atuais. Ganhamos experiência útil na representação de dados existentes em forma de
+                                            hipertexto, e nos tipos de auxílios de navegação e outros apreciados por usuários em física de alta energia.</p>  
+                                         
+                                            <h2>Fase 2 — Meta: 6 meses a partir do início</h2>
+
+                                            <p>Nesta fase importante, pretendemos permitir</p>
+                                            <ul>
+                                                <li>A criação de novos links e novos materiais pelos leitores. Nesta fase, a autoria se torna universal.</li>
+                                                <li>Um navegador de tela cheia no VM/XA para aqueles que usam CERNVM e outros sites HEP VM;</li>
+                                                <li>Um navegador/editor X-window, fornecendo os recursos sofisticados originalmente prototipados sob o
+                                                NeXTStep para a ampla comunidade baseada em X. (Imaginamos usar OSF/Motif sujeito à
+                                                disponibilidade)</li>
+                                                <li> A notificação automática de um leitor quando um novo material de interesse para ele/ela se torna
+                                                disponível. Isso é essencial para artigos de notícias, mas é muito útil para qualquer outro material.</li>
+                                            </ul>
+                                            <p>A capacidade dos leitores de criar links permite anotações por usuários de dados existentes, permite adicionar
+                                                a si mesmos e seus documentos a listas (listas de discussão, índices, etc.). Deve ser possível para os usuários
+                                                vincular documentos públicos a (por exemplo) relatórios de bugs, correções de bugs e outros documentos que
+                                                os próprios autores podem nunca ter percebido que existiam. Esta fase permite a autoria colaborativa. Ela fornece um lugar para colocar qualquer informação de forma que ela possa ser encontrada mais tarde.
+                                                Facilitar a mudança na web é, portanto, a chave para evitar informações obsoletas. Deve-se ser capaz de
+                                                rastrear a fonte da informação, contornar e, em seguida, reparar falhas na web.</p>
+
+                                                <h1>Recursos necessários</h1>
+                                                <h2>1. Pessoas</h2>
+
+                                            <p>As seguintes funções são identificáveis. Elas não correspondem necessariamente a indivíduos em uma base
+                                            um para um. As iniciais entre parênteses indicam pessoas que já expressaram interesse no projeto e que têm
+                                            as habilidades necessárias, mas não indicam nenhum comprometimento ainda de sua parte ou da parte de
+                                            seus gerentes. Estamos, é claro, muito abertos ao envolvimento de outros.</p>
+                                                
+                                                <ul>
+                                                    <li>Arquiteto de sistemas. Coordenar desenvolvimento, definição de protocolo, etc.; garante integridade do
+                                                        design. (50% TBL?) Pesquisa de mercado e planejador de produtos. Discuta o projeto e seus recursos
+                                                        com usuários potenciais e reais em todas as divisões. Prepare critérios para seleção de recursos e
+                                                        prioridade de desenvolvimento. (50% RC?)</li>
+                                                    <li>Supervisiona a rede de dados disponíveis, garantindo sua coerência. Interface com
+                                                        usuários, treina usuários. Gerencia índices e sistemas de palavras-chave. Gerencia dados fornecidos
+                                                        pelo próprio projeto. (100% KG?)</li>
+                                                    <li>Engenheiro de software: NeXTStep. Fornecer interface de navegador/editor sob as ferramentas de
+                                                        interface humana do NeXTStep. Experimentar com auxílios de navegação. Manter um conhecimento
+                                                        atualizado do mundo do NeXTStep. (50%TBL?)</li>
+                                                    <li>Engenheiro de software: X-windows e interface humana. Fornecer interface humana de
+                                                        navegador/editor sob OSF/Motif. Responder a sugestões de usuários para melhorias e opções de
+                                                        facilidade de uso. Criar uma interface humana estética e prática. Manter um conhecimento contínuo do
+                                                        mundo X. (75%RJ?)</li>
+                                                    <li>Engenheiro de software: mainframe IBM. Fornece serviço de navegador em CERNVM e outros sites
+                                                        HEP VM. Mantém o software do servidor FIND. Mantém um conhecimento atualizado do CMS,
+                                                        mundo Rexx. (75% BP?)</li>
+                                                    <li>Engenheiro de software: Macintosh. Forneça navegador/editor para o mac, usando quaisquer
+                                                        ferramentas que sejam apropriadas (Thnk-C, HyperCard, etc?). (50%RC?)</li>
+                                                    <li>Engenheiro de software: C. Ajude a escrever código para navegadores de terminal burro ou vt100, e
+                                                        código de navegador portátil para ser compartilhado entre navegadores. Isso pode incluir um projeto de
+                                                        estudante técnico. (100% NP? + ANOther?)</li>
+                                                </ul>
+                                               <p>Prevemos que pode surgir uma demanda por navegadores em sistemas específicos, por personalizações
+                                                específicas e por servidores para tornar dados específicos existentes disponíveis online como hipertexto.
+                                                Pretendemos apoiar entusiasticamente tal ampliação da web. Claro, podemos ter que recorrer a mais mão de
+                                                obra e expertise específica nesses casos.</p>
+                                                
+                                                    <h2>2. Outros recursos</h2>
+
+                                                    <p>Precisaremos do seguinte suporte em termos de equipamentos e serviços</p>
+                                                <ul>
+                                                    <li>Sentimos que é importante que os envolvidos no projeto possam trabalhar próximos uns dos outros e
+                                                        trocar ideias e problemas enquanto trabalham. Uma área de escritório ou um grupo próximo de
+                                                        escritórios é, portanto, necessário.</li>
+                                                    <li>Cada pessoa trabalhando no projeto precisará de uma estação de trabalho de última geração. A
+                                                        experiência mostra que uma estação de trabalho precisa ser atualizada de alguma forma a cada dois
+                                                        anos ou mais, pois o software se torna mais pesado e os requisitos de memória/velocidade aumentam.
+                                                        Isso e o custo das atualizações de software, prevemos como despesas razoáveis. Imaginamos usar uma
+                                                        variedade de tipos de estação de trabalho, pois fornecemos software em uma variedade de máquinas,
+                                                        mas, de outra forma, NeXTs. Para máquinas VMS, gostaríamos do suporte de um VAXcluster existente
+                                                        para minimizar nossas próprias despesas gerais de gerenciamento de sistema.</li>
+                                                    <li>Gostaríamos de poder comprar licenças para software de hipertexto comercial onde achamos que isso
+                                                        poderia ser incorporado ao projeto e economizar tempo de desenvolvimento e manutenção, ou onde
+                                                        achamos que poderíamos ganhar experiência útil com seu uso. (Exemplos aproximados são: Licença de
+                                                        guia: CHF750; Licença de autor completa KMS CHF1500, kit de avaliação CHF100. FrameMaker:
+                                                        CHF2000)</li>
+                                                    <li>Precisaremos de suporte de computação. Em particular, precisaremos de um suporte de servidor de
+                                                        arquivos NFS (ou equivalente) com backup confiável para nosso ambiente de desenvolvimento.
+                                                        Também precisaremos executar software daemon em máquinas com conectividade Internet, DECnet e
+                                                        BITNET, o que exigirá uma certa quantidade de suporte de operadores e gerentes de sistema.</li>
+                                                </ul>
+
+                                                <h2>Caminhos futuros</h2>
+
+                                                    <ul>
+                                                        <li>As duas fases acima fornecerão um conjunto extremamente útil de ferramentas. Embora os resultados
+                                                            pareçam ambiciosos, as etapas individuais necessárias estão bem dentro de nossas habilidades com a
+                                                            tecnologia disponível. Desenvolvimentos futuros que aprimorariam ainda mais o projeto poderiam
+                                                            incluir:</li>
+                                                        <li>Programas daemon que são executados durante a noite e criam índices de informações disponíveis.
+                                                            Um servidor que fornece automaticamente uma visualização de hipertexto de um banco de dados (por
+                                                            exemplo, Oracle), a partir de uma descrição do banco de dados e uma descrição (por exemplo, em
+                                                            SQL) da visualização necessária. </li>
+                                                        <li>Trabalhar em redes eficientes em áreas amplas, negociando com outros sites para fornecer informações
+                                                            on-line compatíveis. </li>
+                                                        <li>Um estudo sério sobre o uso e abuso do sistema, a sociologia de seu uso no CERN. </li>
+                                                    </ul>
+
+                                                 <h2>Referências</h2>  
+                                                 
+                                                <dl>
+                                                    <ul>[1] <ul>T. Berners-Lee/CN, <a href="http://127.0.0.1:5500/HTandCERN.wn">                                               HyperText e CERN</a>. Uma explicação do hipertexto e por que ele é importante para o CERN. Um documento de fundo explicando as ideias por trás deste projeto.
+                                                    </ul></ul>
+
+                                                    <ul>[2] <ul>T. Berners-Lee/CN, <a href="http://127.0.0.1:5500/DesignIssues/Overview.html">Hypertext Design Issues</a>. Uma análise detalhada de modelos e facilidades de hipertexto, com uma discussão sobre escolhas a serem feitas na escolha ou implementação de um sistema.</ul></ul>
+
+                                                    <ul>[3] <ul><a href="http://127.0.0.1:5500/TheProject.html"> Outra documentação</a> sobre o projeto é armazenada em formato de hipertexto, o que leva a outras referências.</ul></ul>
+                                                </dl>
+</body>
+</html>
