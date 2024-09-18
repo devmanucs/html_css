@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="corpo">
+        <h1>Calculadora simples</h1>
+        <br>
+        <input type="number" id="n1" placeholder="Digite o valor 1"> 
+        <br><br>
+        <input type="number" id="n2" placeholder="Digite o valor 2">
+        <br><br>
+
+        <button onclick="adicao()"> + </button> 
+        <button onclick="sub()"> - </button> 
+        <button onclick="divisao()"> / </button>
+        <button onclick="multiplicacao()"> * </button> 
+        <button onclick="clear()"> c </button> 
+        <br><br>
+
+        <input type="number" id="Resultado" placeholder="Resultado"> 
+    </div>
+    <script>
+        function adicao(){
+            let n1 = parseFloat(document.getElementById('n1').value);
+            let n2 = parseFloat(document.getElementById('n2').value);
+            let Resultado = n1 + n2;
+            document.getElementById('Resultado').value = Resultado;
+        }
+
+        function sub(){
+            let n1 = parseFloat(document.getElementById('n1').value);
+            let n2 = parseFloat(document.getElementById('n2').value);
+            let Resultado = n1 - n2;
+            document.getElementById('Resultado').value = Resultado;
+        }
+
+        function divisao(){
+            let n1 = parseFloat(document.getElementById('n1').value);
+            let n2 = parseFloat(document.getElementById('n2').value);
+            let Resultado = n1 / n2; 
+            document.getElementById('Resultado').value = Resultado;
+        }
+
+        function multiplicacao(){
+            let n1 = parseFloat(document.getElementById('n1').value);
+            let n2 = parseFloat(document.getElementById('n2').value);
+            let Resultado = n1 * n2;
+            document.getElementById('Resultado').value = Resultado;
+        }
+
+        function clear(){
+      
+        }
+    </script>
+</body>
+</html>
