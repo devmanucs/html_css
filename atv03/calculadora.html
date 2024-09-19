@@ -19,7 +19,7 @@
         <button onclick="sub()"> - </button> 
         <button onclick="divisao()"> / </button>
         <button onclick="multiplicacao()"> * </button> 
-        <button onclick="clear()"> c </button> 
+        <button onclick="limpar()"> c </button> 
         <br><br>
 
         <input type="number" id="Resultado" placeholder="Resultado"> 
@@ -53,8 +53,10 @@
             document.getElementById('Resultado').value = Resultado;
         }
 
-        function clear(){
-      
+        function limpar(){
+            let n1 = document.getElementById('n1').value = " ";
+            let n2 = document.getElementById('n2').value = " ";
+            let Resultado = document.getElementById('Resultado').value = " ";
         }
     </script>
 </body>
